@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: grid;
+  grid-template: 100px auto 100px / 300px auto;
+  grid-template-areas: "title nav" "main main" "footer footer";
+  height: 100vh;
+}
+
+@media only screen and (max-width: 700px) {
+  .App {
+    grid-template: 100px 50px auto 100px / auto;
+    grid-template-areas: "title" "nav" "main" "footer";
+    height: 100vh;
+  }
+}
+
+.Title {
+  grid-area: title;
+  border: 2px solid green;
+}
+
+.Main {
+  grid-area: main;
+
+  border: 2px solid blue;
+}
+
+.NavBar {
+  grid-area: nav;
+  border: 2px solid blueviolet;
+}
+.Footer {
+  grid-area: footer;
+  border: 2px solid orangered;
+}
