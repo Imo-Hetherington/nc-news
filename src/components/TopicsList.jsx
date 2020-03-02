@@ -15,12 +15,11 @@ class TopicsList extends Component {
   render() {
     const { isLoading, topics } = this.state;
     if (isLoading) return <Loader />;
-    console.log(topics);
     return (
       <>
         {topics.map(topic => {
           return (
-            <Link to={`/topics/${topic.slug}`}>
+            <Link to={`/topics/${topic.slug}`} key={topic.slug}>
               <button>{topic.slug}</button>
             </Link>
           );
