@@ -5,14 +5,15 @@ const ArticleSort = ({ handleSort }) => {
     <form>
       <label>
         Sort by:
+        <br />
         <button onClick={handleSort} value="votes">
           Most Popular
         </button>
         <button onClick={handleSort} value="created_at">
           Most Recent
         </button>
-        <button onClick={handleSort} value="title">
-          Alphabetical
+        <button onClick={handleSort} value="comment_count">
+          Most discussed
         </button>
       </label>
     </form>
