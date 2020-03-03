@@ -7,8 +7,8 @@ class Voter extends Component {
   state = { addVotes: 0 };
 
   handleVote = inc_votes => {
-    const { article_id, type } = this.props;
-    api.patchVotes(article_id, inc_votes, type);
+    const { id, type } = this.props;
+    api.patchVotes(id, inc_votes, type);
 
     this.setState(currentState => {
       return { addVotes: currentState.addVotes + inc_votes };
