@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import { formatDate, formatTime } from "../utils/utils";
 
 const ArticleCard = ({
   article_id,
@@ -12,9 +13,11 @@ const ArticleCard = ({
   return (
     <section>
       <Link to={`/articles/${article_id}`}>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
       </Link>
-      <p>By {author}</p>
+      <p>
+        Posted by {author} at {formatTime(created_at)} {formatDate(created_at)}
+      </p>
     </section>
   );
 };
