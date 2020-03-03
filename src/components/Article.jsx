@@ -39,7 +39,7 @@ class Article extends Component {
             {formatTime(created_at)} {formatDate(created_at)}
           </time>
         </article>
-        <Voter votes={votes} article_id={article_id} type="articles" />
+        <Voter votes={votes} id={article_id} type="articles" />
         <CommentList article_id={article_id} />
       </>
     );
