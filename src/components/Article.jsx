@@ -40,7 +40,7 @@ class Article extends Component {
           </time>
         </article>
         <Voter votes={votes} id={article_id} type="articles" />
-        <CommentList article_id={article_id} />
+        <CommentList article_id={article_id} username={this.props.user} />
       </>
     );
   }

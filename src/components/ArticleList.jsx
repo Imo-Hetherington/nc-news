@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
 import Loader from "./Loader";
 import * as api from "../utils/api";
 import ArticleSort from "./ArticleSort";
@@ -39,6 +38,7 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />;
     return (
       <>
+        <h2>Stories</h2>
         <ArticleSort handleSort={this.handleSort} />
         {articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;

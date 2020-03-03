@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
+import CommentAdder from "./CommentAdder";
 
 class CommentList extends Component {
   state = {
@@ -13,6 +14,11 @@ class CommentList extends Component {
     this.getComments();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { comments } = this.state;
+    if (comments.length > prevState.comments.length) this.getComments();
+  }
+
   getComments = () => {
     const { article_id } = this.props;
     return api.fetchComments(article_id).then(comments => {
@@ -20,18 +26,38 @@ class CommentList extends Component {
     });
   };
 
+  addComment = comment => {
+    this.setState(currentState => {
+      const updatedComments = currentState.comments;
+      updatedComments.unshift(comment);
+      return { comments: updatedComments };
+    });
+  };
+
   render() {
     const { isLoading, comments } = this.state;
+    const { username, article_id } = this.props;
     if (isLoading) return <Loader />;
     return (
       <>
+        <CommentAdder
+          addComment={this.addComment}
+          article_id={article_id}
+          username={username}
+        />
         {comments.length === 0 ? (
           <p>"No comments yet"</p>
         ) : (
           <>
             <p>{comments.length} comments</p>
             {comments.map(comment => {
-              return <CommentCard {...comment} key={comment.comment_id} />;
+              return (
+                <CommentCard
+                  {...comment}
+                  key={comment.comment_id}
+                  username={username}
+                />
+              );
             })}
           </>
         )}
