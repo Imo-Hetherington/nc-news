@@ -25,13 +25,15 @@ class CommentList extends Component {
     if (isLoading) return <Loader />;
     return (
       <>
-        <h4>Comments</h4>
         {comments.length === 0 ? (
           <p>"No comments yet"</p>
         ) : (
-          comments.map(comment => {
-            return <CommentCard {...comment} key={comment.comment_id} />;
-          })
+          <>
+            <p>{comments.length} comments</p>
+            {comments.map(comment => {
+              return <CommentCard {...comment} key={comment.comment_id} />;
+            })}
+          </>
         )}
       </>
     );
