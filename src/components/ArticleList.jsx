@@ -3,6 +3,7 @@ import Loader from "./Loader";
 import * as api from "../utils/api";
 import ArticleSort from "./ArticleSort";
 import ArticleCard from "./ArticleCard";
+import ErrorPage from "./ErrorPage";
 
 class ArticleList extends Component {
   state = {
@@ -10,7 +11,8 @@ class ArticleList extends Component {
     isLoading: true,
     limit: 10,
     sort_by: "votes",
-    nextPage: 2
+    nextPage: 2,
+    error: null
   };
 
   componentDidMount() {
@@ -34,9 +36,14 @@ class ArticleList extends Component {
   getArticles = () => {
     const { topic_slug } = this.props;
     const { limit, sort_by } = this.state;
-    return api.fetchArticles(topic_slug, limit, sort_by).then(articles => {
-      this.setState({ articles, isLoading: false });
-    });
+    return api
+      .fetchArticles(topic_slug, limit, sort_by)
+      .then(articles => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch(({ response: { data, status } }) => {
+        this.setState({ error: { status, msg: data.msg }, isLoading: false });
+      });
   };
 
   loadMoreArticles = () => {
@@ -55,8 +62,9 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { isLoading, articles } = this.state;
+    const { isLoading, articles, error } = this.state;
     if (isLoading) return <Loader />;
+    if (error) return <ErrorPage {...error} />;
     return (
       <>
         <h2>Stories</h2>

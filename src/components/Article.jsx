@@ -4,11 +4,13 @@ import * as api from "../utils/api";
 import { formatDate, formatTime } from "../utils/utils";
 import CommentList from "./CommentList";
 import Voter from "./Voter";
+import ErrorPage from "./ErrorPage";
 
 class Article extends Component {
   state = {
     article: {},
-    isLoading: true
+    isLoading: true,
+    error: null
   };
 
   componentDidMount() {
@@ -17,17 +19,24 @@ class Article extends Component {
 
   getArticle = () => {
     const { article_id } = this.props;
-    return api.fetchArticle(article_id).then(article => {
-      this.setState({ article, isLoading: false });
-    });
+    return api
+      .fetchArticle(article_id)
+      .then(article => {
+        this.setState({ article, isLoading: false });
+      })
+      .catch(({ response: { data, status } }) => {
+        this.setState({ error: { status, msg: data.msg }, isLoading: false });
+      });
   };
 
   render() {
     const {
       isLoading,
-      article: { article_id, title, author, body, created_at, votes }
+      article: { article_id, title, author, body, created_at, votes },
+      error
     } = this.state;
     if (isLoading) return <Loader />;
+    if (error) return <ErrorPage {...error} />;
     return (
       <>
         <article>

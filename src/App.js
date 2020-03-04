@@ -6,6 +6,7 @@ import ArticleList from "./components/ArticleList";
 import Footer from "./components/Footer";
 import Article from "./components/Article";
 import { Router } from "@reach/router";
+import ErrorPage from "./components/ErrorPage";
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
             <ArticleList path="/" />
             <ArticleList path="/topics/:topic_slug" />
             <Article path="/articles/:article_id" user={this.state.user} />
+            <ErrorPage default msg="Page Not Found" status={404} />
           </Router>
         </main>
 
