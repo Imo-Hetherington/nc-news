@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import Loader from "./Loader";
 import * as api from "../utils/api";
+import styled from "styled-components";
 
-class TopicsList extends Component {
+const StyledNav = styled.nav`
+  display: flex;
+  background-color: #ea8c55;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  justify-content: space-evenly;
+`;
+
+class TopicsNav extends Component {
   state = { topics: [], isLoading: true };
 
   componentDidMount() {
@@ -16,17 +26,17 @@ class TopicsList extends Component {
     const { isLoading, topics } = this.state;
     if (isLoading) return <Loader hideGif={true} />;
     return (
-      <>
+      <StyledNav>
         {topics.map(topic => {
           return (
             <Link to={`/topics/${topic.slug}`} key={topic.slug}>
-              <button>{topic.slug}</button>
+              {topic.slug}
             </Link>
           );
         })}
-      </>
+      </StyledNav>
     );
   }
 }
 
-export default TopicsList;
+export default TopicsNav;

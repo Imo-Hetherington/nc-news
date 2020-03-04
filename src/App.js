@@ -7,18 +7,21 @@ import Footer from "./components/Footer";
 import Article from "./components/Article";
 import { Router } from "@reach/router";
 import ErrorPage from "./components/ErrorPage";
+import TopicsNav from "./components/TopicsNav";
 
 class App extends Component {
   state = {
-    user: "weegembump"
+    user: "weegembump",
+    viewTopics: false
   };
 
   render() {
     return (
       <div className="App">
         <Title />
-        <NavBar />
+        <NavBar toggleTopics={this.toggleTopics} />
         <main className="Main">
+          {this.state.viewTopics && <TopicsNav />}
           <Router>
             <ArticleList path="/" />
             <ArticleList path="/topics/:topic_slug" />
@@ -31,6 +34,12 @@ class App extends Component {
       </div>
     );
   }
+
+  toggleTopics = () => {
+    this.setState(currentState => {
+      return { viewTopics: !currentState.viewTopics };
+    });
+  };
 }
 
 export default App;

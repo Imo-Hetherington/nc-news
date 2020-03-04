@@ -1,17 +1,14 @@
 import React from "react";
 import { Link } from "@reach/router";
-import TopicsList from "./TopicsList";
-import ViewToggler from "./ViewToggler";
+import NavButton from "./styled-components/NavButton";
 
-const NavBar = () => {
+const NavBar = ({ toggleTopics }) => {
   return (
     <nav className="NavBar">
       <Link to="/">
-        <button>Articles</button>
+        <NavButton>Articles</NavButton>
       </Link>
-      <ViewToggler name="Topics">
-        <TopicsList />
-      </ViewToggler>
+      <NavButton onClick={toggleTopics}>Topics</NavButton>
     </nav>
   );
 };
