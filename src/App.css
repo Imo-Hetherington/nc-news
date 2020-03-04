@@ -54,12 +54,18 @@
 
 .Title {
   grid-area: title;
-  border: 2px solid green;
+  background-color: #252f30;
+  font-family: adobe-caslon-pro, serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #f4fec1;
+  font-size: 40px;
+  line-height: 0;
+  align-items: center;
 }
 
 .Main {
   grid-area: main;
-
   border: 2px solid blue;
 }
 
