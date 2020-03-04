@@ -6,10 +6,12 @@ import * as api from "../utils/api";
 
 class CommentCard extends Component {
   state = {
-    deleted: false
+    deleted: false,
+    disableButton: false
   };
 
   handleDelete = () => {
+    this.setState({ disableButton: true });
     api.deleteComment(this.props.comment_id).then(() => {
       this.setState({ deleted: true });
     });
@@ -24,7 +26,7 @@ class CommentCard extends Component {
       comment_id,
       username
     } = this.props;
-    const { deleted } = this.state;
+    const { deleted, disableButton } = this.state;
     return (
       !deleted && (
         <section>
@@ -35,7 +37,10 @@ class CommentCard extends Component {
           </p>
           <Voter type="comments" votes={votes} id={comment_id} />
           {author === username && (
-            <DeleteButton handleDelete={this.handleDelete} />
+            <DeleteButton
+              handleDelete={this.handleDelete}
+              disableButton={disableButton}
+            />
           )}
         </section>
       )
