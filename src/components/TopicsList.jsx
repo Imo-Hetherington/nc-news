@@ -14,7 +14,7 @@ class TopicsList extends Component {
 
   render() {
     const { isLoading, topics } = this.state;
-    if (isLoading) return <Loader />;
+    if (isLoading) return <Loader hideGif={true} />;
     return (
       <>
         {topics.map(topic => {

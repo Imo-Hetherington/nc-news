@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import TopicsList from "./TopicsList";
+import ViewToggler from "./ViewToggler";
 
 const NavBar = () => {
   return (
@@ -8,7 +9,9 @@ const NavBar = () => {
       <Link to="/">
         <button>Articles</button>
       </Link>
-      <TopicsList />
+      <ViewToggler name="Topics">
+        <TopicsList />
+      </ViewToggler>
     </nav>
   );
 };
