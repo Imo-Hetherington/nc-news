@@ -9,11 +9,17 @@ class ArticleList extends Component {
     articles: [],
     isLoading: true,
     limit: 10,
-    sort_by: "votes"
+    sort_by: "votes",
+    nextPage: 2
   };
 
   componentDidMount() {
     this.getArticles();
+    window.addEventListener("scroll", this.handleScroll, true);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll, true);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -31,6 +37,21 @@ class ArticleList extends Component {
     return api.fetchArticles(topic_slug, limit, sort_by).then(articles => {
       this.setState({ articles, isLoading: false });
     });
+  };
+
+  loadMoreArticles = () => {
+    const { topic_slug } = this.props;
+    const { limit, sort_by, nextPage } = this.state;
+    return api
+      .fetchArticles(topic_slug, limit, sort_by, nextPage)
+      .then(articles => {
+        this.setState(currentState => {
+          return {
+            articles: currentState.articles.concat(articles),
+            nextPage: currentState.nextPage + 1
+          };
+        });
+      });
   };
 
   render() {
@@ -51,6 +72,15 @@ class ArticleList extends Component {
     event.preventDefault();
     const { target } = event;
     this.setState({ sort_by: target.value }, () => {});
+  };
+
+  handleScroll = () => {
+    if (
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.body.scrollHeight
+    ) {
+      this.loadMoreArticles();
+    }
   };
 }
 

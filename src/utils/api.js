@@ -6,10 +6,10 @@ export const fetchTopics = () => {
     .then(({ data: topics }) => topics.topics);
 };
 
-export const fetchArticles = (topic, limit, sort_by) => {
+export const fetchArticles = (topic, limit, sort_by, p) => {
   return axios
     .get("https://imo-nc-news.herokuapp.com/api/articles", {
-      params: { topic, limit, sort_by }
+      params: { topic, limit, sort_by, p }
     })
     .then(({ data: articles }) => articles.articles);
 };
