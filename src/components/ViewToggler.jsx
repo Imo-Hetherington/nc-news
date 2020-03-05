@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NavButton from "./styled-components/NavButton";
+import MainButton from "./styled-components/MainButton";
 
 class ViewTopics extends Component {
   state = { isVisible: false };
@@ -12,7 +13,7 @@ class ViewTopics extends Component {
   render() {
     return (
       <>
-        <NavButton onClick={this.toggleVisible}>{this.props.name}</NavButton>
+        <MainButton onClick={this.toggleVisible}>{this.props.name}</MainButton>
         <br />
         {this.state.isVisible && <>{this.props.children}</>}
       </>

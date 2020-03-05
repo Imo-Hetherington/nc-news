@@ -3,6 +3,8 @@ import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
 import CommentAdder from "./CommentAdder";
+import MainButton from "./styled-components/MainButton";
+import ViewToggler from "./ViewToggler";
 
 class CommentList extends Component {
   state = {
@@ -49,16 +51,17 @@ class CommentList extends Component {
           <p>"No comments yet"</p>
         ) : (
           <>
-            <p>{comments.length} comments</p>
-            {comments.map(comment => {
-              return (
-                <CommentCard
-                  {...comment}
-                  key={comment.comment_id}
-                  username={username}
-                />
-              );
-            })}
+            <ViewToggler name={`View ${comments.length} comments`}>
+              {comments.map(comment => {
+                return (
+                  <CommentCard
+                    {...comment}
+                    key={comment.comment_id}
+                    username={username}
+                  />
+                );
+              })}
+            </ViewToggler>
           </>
         )}
       </>
