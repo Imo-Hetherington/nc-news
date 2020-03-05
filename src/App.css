@@ -96,6 +96,7 @@ a {
 }
 
 .Footer {
+  margin-top: 10px;
   grid-area: footer;
   background-color: #ea8c55;
 }

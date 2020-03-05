@@ -9,19 +9,22 @@ const StyledCard = styled.section`
   align-items: center;
   text-decoration: none;
   color: #252f30;
+  -webkit-box-shadow: 10px 11px 2px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 11px 2px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 11px 2px -6px rgba(0, 0, 0, 0.75);
 `;
 
 const StyledComment = styled(StyledCard)`
   text-align: left;
   display: grid;
-  grid-template-columns: 100px auto 100px;
+  grid-template-columns: 80px auto 100px;
   grid-template-rows: 50px auto;
   grid-template-areas: "voter username date" "voter body body";
   .voterForm {
     grid-area: voter;
     display: "inline";
     margin: 0;
-    width: 100px;
+    width: 80px;
     background-color: ;
   }
   .datetime: {
