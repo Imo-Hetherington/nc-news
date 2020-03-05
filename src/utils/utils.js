@@ -12,6 +12,8 @@ const formatTime = datetime => {
   return time;
 };
 
-const formatSlug = slug => {};
+const formatSlug = slug => {
+  return slug.substr(0, 1).toUpperCase() + slug.substr(1);
+};
 
 export { formatDate, formatTime, formatSlug };

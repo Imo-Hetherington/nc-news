@@ -16,8 +16,8 @@ const ArticleCard = ({
       <StyledCard>
         <h3>{title}</h3>
         <p>
-          Posted by {author} at {formatTime(created_at)}{" "}
-          {formatDate(created_at)}
+          Posted by {author} on {formatDate(created_at)} at{" "}
+          {formatTime(created_at)}
         </p>
       </StyledCard>
     </Link>

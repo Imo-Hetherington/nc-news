@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import Loader from "./Loader";
 import * as api from "../utils/api";
 import styled from "styled-components";
+import { formatSlug } from "../utils/utils";
 
 const StyledNav = styled.nav`
   grid-column: 1;
@@ -37,7 +38,7 @@ class TopicsNav extends Component {
         {topics.map(topic => {
           return (
             <Link to={`/topics/${topic.slug}`} key={topic.slug}>
-              {topic.slug}
+              {formatSlug(topic.slug)}
             </Link>
           );
         })}

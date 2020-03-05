@@ -40,7 +40,6 @@ class Article extends Component {
     return (
       <>
         <article>
-          <Voter votes={votes} id={article_id} type="articles" />
           <h2>{title}</h2>
           <p>By {author}</p>
 
@@ -49,6 +48,7 @@ class Article extends Component {
             Posted at {formatTime(created_at)} {formatDate(created_at)}
           </time>
         </article>
+        <Voter votes={votes} id={article_id} type="articles" />
         <CommentList article_id={article_id} username={this.props.user} />
       </>
     );

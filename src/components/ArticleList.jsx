@@ -4,6 +4,7 @@ import * as api from "../utils/api";
 import ArticleSort from "./ArticleSort";
 import ArticleCard from "./ArticleCard";
 import ErrorPage from "./ErrorPage";
+import { formatSlug } from "../utils/utils";
 
 class ArticleList extends Component {
   state = {
@@ -68,7 +69,7 @@ class ArticleList extends Component {
     if (error) return <ErrorPage {...error} />;
     return (
       <>
-        <h2>{topic_slug ? topic_slug : "All Articles"}</h2>
+        <h2>{topic_slug ? formatSlug(topic_slug) : "All Articles"}</h2>
         <ArticleSort handleSort={this.handleSort} />
         {articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;
