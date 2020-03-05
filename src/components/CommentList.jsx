@@ -42,11 +42,7 @@ class CommentList extends Component {
     if (isLoading) return <Loader />;
     return (
       <>
-        <CommentAdder
-          addComment={this.addComment}
-          article_id={article_id}
-          username={username}
-        />
+        <CommentAdder addComment={this.addComment} article_id={article_id} />
         {comments.length === 0 ? (
           <p>"No comments yet"</p>
         ) : (

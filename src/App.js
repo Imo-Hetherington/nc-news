@@ -8,33 +8,34 @@ import Article from "./components/Article";
 import { Router } from "@reach/router";
 import ErrorPage from "./components/ErrorPage";
 import TopicsNav from "./components/TopicsNav";
+import { UserProvider } from "./UserContext";
 
 class App extends Component {
   state = {
-    user: "weegembump",
     viewTopics: false
   };
 
   render() {
     return (
-      <div className="App">
-        <Title />
-        <NavBar
-          toggleTopicsOn={this.toggleTopics}
-          toggleTopicsOff={this.toggleTopicsOff}
-        />
-        <main className="Main" onClick={this.toggleTopicsOff}>
-          {this.state.viewTopics && <TopicsNav />}
-          <Router>
-            <ArticleList path="/" />
-            <ArticleList path="/topics/:topic_slug" />
-            <Article path="/articles/:article_id" user={this.state.user} />
-            <ErrorPage default msg="Page Not Found" status={404} />
-          </Router>
-        </main>
-
-        <Footer />
-      </div>
+      <UserProvider value={"weegembump"}>
+        <div className="App">
+          <Title />
+          <NavBar
+            toggleTopicsOn={this.toggleTopics}
+            toggleTopicsOff={this.toggleTopicsOff}
+          />
+          <main className="Main" onClick={this.toggleTopicsOff}>
+            {this.state.viewTopics && <TopicsNav />}
+            <Router>
+              <ArticleList path="/" />
+              <ArticleList path="/topics/:topic_slug" />
+              <Article path="/articles/:article_id" />
+              <ErrorPage default msg="Page Not Found" status={404} />
+            </Router>
+          </main>
+          <Footer />
+        </div>
+      </UserProvider>
     );
   }
 

@@ -4,6 +4,7 @@ import Voter from "./Voter";
 import DeleteButton from "./DeleteButton";
 import * as api from "../utils/api";
 import { StyledComment } from "./styled-components/StyledCard";
+import UserContext from "../UserContext";
 
 class CommentCard extends Component {
   state = {
@@ -18,15 +19,11 @@ class CommentCard extends Component {
     });
   };
 
+  static contextType = UserContext;
+
   render() {
-    const {
-      author,
-      body,
-      created_at,
-      votes,
-      comment_id,
-      username
-    } = this.props;
+    const { author, body, created_at, votes, comment_id } = this.props;
+    const username = this.context;
     const { deleted, disableButton } = this.state;
     return (
       !deleted && (
