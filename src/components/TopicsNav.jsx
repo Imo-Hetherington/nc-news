@@ -5,11 +5,11 @@ import * as api from "../utils/api";
 import styled from "styled-components";
 
 const StyledNav = styled.nav`
+  grid-column: 1;
   display: flex;
   background-color: #ea8c55;
   list-style: none;
   margin: 0;
-  width: 100%;
   padding: 10px;
   justify-content: space-evenly;
   a {

@@ -63,10 +63,12 @@ class ArticleList extends Component {
 
   render() {
     const { isLoading, articles, error } = this.state;
+    const { topic_slug } = this.props;
     if (isLoading) return <Loader />;
     if (error) return <ErrorPage {...error} />;
     return (
       <>
+        <h2>{topic_slug ? topic_slug : "All Articles"}</h2>
         <ArticleSort handleSort={this.handleSort} />
         {articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;
