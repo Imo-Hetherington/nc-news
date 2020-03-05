@@ -3,6 +3,7 @@ import { formatDate, formatTime } from "../utils/utils";
 import Voter from "./Voter";
 import DeleteButton from "./DeleteButton";
 import * as api from "../utils/api";
+import StyledCard from "./styled-components/StyledCard";
 
 class CommentCard extends Component {
   state = {
@@ -29,20 +30,21 @@ class CommentCard extends Component {
     const { deleted, disableButton } = this.state;
     return (
       !deleted && (
-        <section>
-          <h4>{author}</h4>
+        <StyledCard>
+          <Voter type="comments" votes={votes} id={comment_id} />
+          <h3>{author}</h3>
           <p>{body}</p>
           <p>
             {formatDate(created_at)} {formatTime(created_at)}
           </p>
-          <Voter type="comments" votes={votes} id={comment_id} />
+
           {author === username && (
             <DeleteButton
               handleDelete={this.handleDelete}
               disableButton={disableButton}
             />
           )}
-        </section>
+        </StyledCard>
       )
     );
   }

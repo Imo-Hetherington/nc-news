@@ -45,7 +45,7 @@ class Article extends Component {
 
           <p>{body}</p>
           <time>
-            {formatTime(created_at)} {formatDate(created_at)}
+            Posted at {formatTime(created_at)} {formatDate(created_at)}
           </time>
         </article>
         <Voter votes={votes} id={article_id} type="articles" />

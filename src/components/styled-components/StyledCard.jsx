@@ -5,11 +5,9 @@ const StyledCard = styled.section`
   border-radius: 3px;
   margin: 2px 5px 2px 5px;
   padding-top: 3px;
+  align-items: center;
   text-decoration: none;
   color: #252f30;
-  h3 {
-    max-width: 600px;
-  }
 `;
 
 export default StyledCard;
