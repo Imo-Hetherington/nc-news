@@ -7,6 +7,9 @@ const StyledCard = styled.section`
   padding-top: 3px;
   text-decoration: none;
   color: #252f30;
+  h3 {
+    max-width: 600px;
+  }
 `;
 
 export default StyledCard;
