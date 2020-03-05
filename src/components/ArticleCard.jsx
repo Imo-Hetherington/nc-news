@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { formatDate, formatTime } from "../utils/utils";
+import StyledCard from "./styled-components/StyledCard";
 
 const ArticleCard = ({
   article_id,
@@ -11,14 +12,15 @@ const ArticleCard = ({
   votes
 }) => {
   return (
-    <section>
-      <Link to={`/articles/${article_id}`}>
+    <Link to={`/articles/${article_id}`}>
+      <StyledCard>
         <h3>{title}</h3>
-      </Link>
-      <p>
-        Posted by {author} at {formatTime(created_at)} {formatDate(created_at)}
-      </p>
-    </section>
+        <p>
+          Posted by {author} at {formatTime(created_at)}{" "}
+          {formatDate(created_at)}
+        </p>
+      </StyledCard>
+    </Link>
   );
 };
 

@@ -67,7 +67,6 @@ class ArticleList extends Component {
     if (error) return <ErrorPage {...error} />;
     return (
       <>
-        <h2>Stories</h2>
         <ArticleSort handleSort={this.handleSort} />
         {articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;

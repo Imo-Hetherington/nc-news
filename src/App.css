@@ -42,6 +42,9 @@
   grid-template: 100px auto 100px / 300px auto;
   grid-template-areas: "title nav" "main main" "footer footer";
   height: 100vh;
+  font-family: adobe-caslon-pro, serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 @media only screen and (max-width: 700px) {
@@ -55,9 +58,7 @@
 .Title {
   grid-area: title;
   background-color: #252f30;
-  font-family: adobe-caslon-pro, serif;
-  font-weight: 600;
-  font-style: normal;
+
   color: #f4fec1;
   font-size: 40px;
   line-height: 0;
@@ -67,6 +68,7 @@
 .Main {
   grid-area: main;
   background-color: #f4fec1;
+  font-size: 110%;
 }
 
 .NavBar {
@@ -78,7 +80,11 @@
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 .Footer {
   grid-area: footer;
-  border: 2px solid orangered;
+  background-color: #ea8c55;
 }

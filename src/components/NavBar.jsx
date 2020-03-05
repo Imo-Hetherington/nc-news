@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "@reach/router";
 import NavButton from "./styled-components/NavButton";
 
-const NavBar = ({ toggleTopics }) => {
+const NavBar = ({ toggleTopicsOn, toggleTopicsOff }) => {
   return (
     <nav className="NavBar">
       <Link to="/">
-        <NavButton>Articles</NavButton>
+        <NavButton onClick={toggleTopicsOff}>Articles</NavButton>
       </Link>
-      <NavButton onClick={toggleTopics}>Topics</NavButton>
+      <NavButton onClick={toggleTopicsOn}>Topics</NavButton>
     </nav>
   );
 };

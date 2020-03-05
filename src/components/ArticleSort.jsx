@@ -1,21 +1,18 @@
 import React from "react";
+import MainButton from "./styled-components/MainButton.jsx";
 
 const ArticleSort = ({ handleSort }) => {
   return (
     <form>
-      <label>
-        Sort by:
-        <br />
-        <button onClick={handleSort} value="votes">
-          Most Popular
-        </button>
-        <button onClick={handleSort} value="created_at">
-          Most Recent
-        </button>
-        <button onClick={handleSort} value="comment_count">
-          Most discussed
-        </button>
-      </label>
+      <MainButton onClick={handleSort} value="votes">
+        Most Popular
+      </MainButton>
+      <MainButton onClick={handleSort} value="created_at">
+        Most Recent
+      </MainButton>
+      <MainButton onClick={handleSort} value="comment_count">
+        Most discussed
+      </MainButton>
     </form>
   );
 };

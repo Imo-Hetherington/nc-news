@@ -19,7 +19,10 @@ class App extends Component {
     return (
       <div className="App">
         <Title />
-        <NavBar toggleTopics={this.toggleTopics} />
+        <NavBar
+          toggleTopicsOn={this.toggleTopicsOn}
+          toggleTopicsOff={this.toggleTopicsOff}
+        />
         <main className="Main">
           {this.state.viewTopics && <TopicsNav />}
           <Router>
@@ -35,10 +38,11 @@ class App extends Component {
     );
   }
 
-  toggleTopics = () => {
-    this.setState(currentState => {
-      return { viewTopics: !currentState.viewTopics };
-    });
+  toggleTopicsOn = () => {
+    this.setState({ viewTopics: true });
+  };
+  toggleTopicsOff = () => {
+    this.setState({ viewTopics: false });
   };
 }
 

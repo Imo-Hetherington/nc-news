@@ -11,6 +11,12 @@ const StyledNav = styled.nav`
   margin: 0;
   padding: 10px;
   justify-content: space-evenly;
+  a {
+    font-size: 20px;
+    :visited {
+      color: #252f30;
+    }
+  }
 `;
 
 class TopicsNav extends Component {
