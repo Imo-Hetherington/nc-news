@@ -14,7 +14,7 @@ const StyledCard = styled.section`
 const StyledComment = styled(StyledCard)`
   text-align: left;
   display: grid;
-  grid-template-columns: 100px auto 200px;
+  grid-template-columns: 100px auto 100px;
   grid-template-rows: 50px auto;
   grid-template-areas: "voter username date" "voter body body";
   .voterForm {
@@ -22,6 +22,7 @@ const StyledComment = styled(StyledCard)`
     display: "inline";
     margin: 0;
     width: 100px;
+    background-color: ;
   }
   .datetime: {
     grid-area: date;

@@ -12,4 +12,6 @@ const formatTime = datetime => {
   return time;
 };
 
-export { formatDate, formatTime };
+const formatSlug = slug => {};
+
+export { formatDate, formatTime, formatSlug };
