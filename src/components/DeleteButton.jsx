@@ -1,10 +1,15 @@
 import React from "react";
+import MainButton from "./styled-components/MainButton";
 
 const DeleteButton = ({ handleDelete, disableButton }) => {
   return (
-    <button onClick={handleDelete} disabled={disableButton}>
+    <MainButton
+      onClick={handleDelete}
+      disabled={disableButton}
+      className="deleteButton"
+    >
       Delete
-    </button>
+    </MainButton>
   );
 };
 

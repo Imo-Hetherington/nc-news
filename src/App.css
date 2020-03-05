@@ -70,8 +70,16 @@
   background-color: #f4fec1;
   font-size: 110%;
   display: grid;
-  grid-template-columns: 700px;
+  grid-template-columns: 90%;
   justify-content: center;
+}
+
+@media only screen and (min-width: 700px) {
+  .Main {
+    display: grid;
+    grid-template-columns: 700px;
+    justify-content: center;
+  }
 }
 
 .NavBar {

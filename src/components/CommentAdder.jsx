@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
+import MainButton from "./styled-components/MainButton";
+import StyledInput from "./styled-components/StyledInput";
 
 class CommentAdder extends Component {
   state = {
@@ -23,13 +25,13 @@ class CommentAdder extends Component {
   render() {
     return (
       <form onSubmit={this.handleComment}>
-        <input
+        <StyledInput
           type="text"
           placeholder="Leave a comment..."
           onChange={this.handleChange}
           value={this.state.commentBody}
         />
-        <button>Comment</button>
+        <MainButton>Comment</MainButton>
       </form>
     );
   }

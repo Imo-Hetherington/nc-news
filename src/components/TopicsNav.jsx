@@ -9,6 +9,7 @@ const StyledNav = styled.nav`
   background-color: #ea8c55;
   list-style: none;
   margin: 0;
+  width: 100%;
   padding: 10px;
   justify-content: space-evenly;
   a {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
-import Upvote from "../assets/up.png";
-import Downvote from "../assets/down.png";
+import MainButton from "./styled-components/MainButton";
 
 class Voter extends Component {
   state = { addVotes: 0 };
@@ -18,25 +17,25 @@ class Voter extends Component {
   render() {
     const { addVotes } = this.state;
     return (
-      <>
-        <button
+      <form className="voterForm">
+        <MainButton
           disabled={addVotes > 0}
           onClick={() => {
             this.handleVote(1);
           }}
         >
-          <img height="20px" src={Upvote} alt="Upvote" />
-        </button>
-        <span>{this.props.votes + addVotes} votes</span>
-        <button
+          +
+        </MainButton>
+        <span>{this.props.votes + addVotes}</span>
+        <MainButton
           disabled={addVotes < 0}
           onClick={() => {
             this.handleVote(-1);
           }}
         >
-          <img src={Downvote} alt="downvote" height="20px" />
-        </button>
-      </>
+          -
+        </MainButton>
+      </form>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { formatDate, formatTime } from "../utils/utils";
-import StyledCard from "./styled-components/StyledCard";
+import { StyledCard } from "./styled-components/StyledCard";
 
 const ArticleCard = ({
   article_id,
