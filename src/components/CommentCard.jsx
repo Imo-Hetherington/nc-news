@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { formatDate, formatTime } from "../utils/utils";
+import { formatDate } from "../utils/utils";
 import Voter from "./Voter";
 import DeleteButton from "./DeleteButton";
 import * as api from "../utils/api";
@@ -9,11 +9,11 @@ import UserContext from "../UserContext";
 class CommentCard extends Component {
   state = {
     deleted: false,
-    disableButton: false
+    disableDelete: false
   };
 
   handleDelete = () => {
-    this.setState({ disableButton: true });
+    this.setState({ disableDelete: true });
     api.deleteComment(this.props.comment_id).then(() => {
       this.setState({ deleted: true });
     });
@@ -24,7 +24,7 @@ class CommentCard extends Component {
   render() {
     const { author, body, created_at, votes, comment_id } = this.props;
     const username = this.context;
-    const { deleted, disableButton } = this.state;
+    const { deleted, disableDelete } = this.state;
     return (
       !deleted && (
         <StyledComment type="comment">
@@ -36,7 +36,7 @@ class CommentCard extends Component {
           {author === username && (
             <DeleteButton
               handleDelete={this.handleDelete}
-              disableButton={disableButton}
+              disableButton={disableDelete}
             />
           )}
         </StyledComment>

@@ -6,7 +6,8 @@ import UserContext from "../UserContext";
 
 class CommentAdder extends Component {
   state = {
-    commentBody: ""
+    commentBody: "",
+    disableComment: false
   };
 
   handleChange = ({ target: { value } }) => {
@@ -18,24 +19,26 @@ class CommentAdder extends Component {
     const body = this.state.commentBody;
     const username = this.context;
     const { article_id } = this.props;
-    console.log(username, body);
+    this.setState({ disableComment: true });
     api.postComment(article_id, { username, body }).then(comment => {
       this.props.addComment(comment);
-      this.setState({ commentBody: "" });
+      this.setState({ commentBody: "", disableComment: false });
     });
   };
 
   static contextType = UserContext;
   render() {
+    const { disableComment } = this.state;
     return (
       <StyledForm onSubmit={this.handleComment}>
         <textarea
+          required
           type="text"
           placeholder="Leave a comment..."
           onChange={this.handleChange}
           value={this.state.commentBody}
         />
-        <MainButton>Comment</MainButton>
+        <MainButton disabled={disableComment}>Comment</MainButton>
       </StyledForm>
     );
   }

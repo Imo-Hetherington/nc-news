@@ -17,7 +17,7 @@ class Voter extends Component {
   render() {
     const { addVotes } = this.state;
     return (
-      <form className="voterForm">
+      <section className="voterForm">
         <MainButton
           disabled={addVotes > 0}
           onClick={() => {
@@ -35,7 +35,7 @@ class Voter extends Component {
         >
           -
         </MainButton>
-      </form>
+      </section>
     );
   }
 }

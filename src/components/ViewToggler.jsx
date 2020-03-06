@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NavButton from "./styled-components/NavButton";
 import MainButton from "./styled-components/MainButton";
 
 class ViewTopics extends Component {

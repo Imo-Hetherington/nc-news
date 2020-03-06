@@ -44,7 +44,7 @@ export const postComment = (article_id, newComment) => {
 };
 
 export const deleteComment = comment_id => {
-  return axios
-    .delete(`https://imo-nc-news.herokuapp.com/api/comments/${comment_id}`)
-    .then(() => console.log("deleted"));
+  return axios.delete(
+    `https://imo-nc-news.herokuapp.com/api/comments/${comment_id}`
+  );
 };

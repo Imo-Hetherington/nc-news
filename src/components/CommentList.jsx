@@ -3,7 +3,6 @@ import * as api from "../utils/api";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
 import CommentAdder from "./CommentAdder";
-import MainButton from "./styled-components/MainButton";
 import ViewToggler from "./ViewToggler";
 
 class CommentList extends Component {
