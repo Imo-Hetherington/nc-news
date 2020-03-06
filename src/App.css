@@ -63,12 +63,15 @@ a {
   grid-column-start: 2;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 900px) {
   .App {
     grid-template: 100px auto 100px / 400px auto;
     grid-template-areas: "title nav" "main main" "footer footer";
     height: 100vh;
   }
+}
+
+@media only screen and (min-width: 700px) {
   .Main {
     display: grid;
     grid-template-columns: 1fr 700px 1fr;
