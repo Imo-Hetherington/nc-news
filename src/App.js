@@ -26,7 +26,7 @@ class App extends Component {
           />
           <main className="Main" onClick={this.toggleTopicsOff}>
             {this.state.viewTopics && <TopicsNav />}
-            <Router>
+            <Router className="mainContent">
               <ArticleList path="/" />
               <ArticleList path="/topics/:topic_slug" />
               <Article path="/articles/:article_id" />

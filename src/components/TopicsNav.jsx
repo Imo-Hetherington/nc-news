@@ -6,7 +6,8 @@ import styled from "styled-components";
 import { formatSlug } from "../utils/utils";
 
 const StyledNav = styled.nav`
-  grid-column: 1;
+  grid-column-start: 1;
+  grid-column-end: span 3;
   display: flex;
   background-color: #ea8c55;
   list-style: none;
