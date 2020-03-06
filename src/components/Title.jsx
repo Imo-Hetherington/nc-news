@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 const Title = () => {
   return (
-    <header className="Title">
-      <h1>nc-news</h1>
-    </header>
+    <Link className="Title" to="/">
+      <header>
+        <h1>nc-news</h1>
+      </header>
+    </Link>
   );
 };
 

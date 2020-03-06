@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import ArticleList from "./components/ArticleList";
 import Footer from "./components/Footer";
 import Article from "./components/Article";
-import { Router } from "@reach/router";
+import { Router, Link } from "@reach/router";
 import ErrorPage from "./components/ErrorPage";
 import TopicsNav from "./components/TopicsNav";
 import { UserProvider } from "./UserContext";
