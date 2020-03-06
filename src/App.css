@@ -3,7 +3,7 @@
   grid-template: 85px 65px auto 100px / auto;
   grid-template-areas: "title" "nav" "main" "footer";
   font-family: adobe-caslon-pro, serif;
-  /* height: 100vh; */
+  height: 100vh;
 
   font-weight: 600;
   font-style: normal;
@@ -14,7 +14,7 @@
   .App {
     grid-template: 100px auto 100px / 400px auto;
     grid-template-areas: "title nav" "main main" "footer footer";
-    /* height: 100vh; */
+    height: 100vh;
   }
 }
 
