@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NC-NEWS
 
-## Available Scripts
+This project is a webapp which displays data from a news API. The app was made using React.js. Styling was done using Vanilla CSS and styled-components.
 
-In the project directory, you can run:
+## NC-News API
 
-### `npm start`
+The API is hosted on heroku at:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://imo-nc-news.herokuapp.com/api
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+An overview of all available endpoints can be found at the link above. For a more detailed look at the API, go to the repo:
 
-### `npm test`
+https://github.com/Imo-Hetherington/be-nc-news
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running NC-News locally
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node v12
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- To run this repo on your own machine, clone it using the command line by running:
 
-### `npm run eject`
+```
+git clone https://github.com/Imo-Hetherington/nc-news.git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- To install all dependencies, run `npm i`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- You can then start the app in development mode using `npm start`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The repo contains a few tests of utils. You can run the tests using `npm test` in the command line. The tests will be run using jest in watch mode.
